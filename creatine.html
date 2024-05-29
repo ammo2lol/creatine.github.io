@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discord Bot Commands</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    h1 {
+        text-align: center;
+    }
+    .commands-list {
+        list-style-type: none;
+        padding: 0;
+    }
+    .commands-list li {
+        margin-bottom: 10px;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Discord Bot Commands</h1>
+    <ul class="commands-list" id="commandsList">
+        <!-- Commands will be added dynamically here -->
+    </ul>
+</div>
+
+<script>
+    // Dummy data for commands (replace this with actual data)
+    const commands = [
+        { name: "!help", description: "Displays list of available commands." },
+        { name: "!info", description: "Shows information about the bot." },
+        { name: "!ping", description: "Check the bot's latency." },
+        { name: "!kick [user]", description: "Kicks a user from the server." },
+        { name: "!ban [user]", description: "Bans a user from the server." },
+        { name: "!mute [user]", description: "Mutes a user in the server." }
+    ];
+
+    // Function to render commands
+    function renderCommands() {
+        const commandsList = document.getElementById("commandsList");
+        commandsList.innerHTML = ""; // Clear existing list
+        
+        commands.forEach(command => {
+            const listItem = document.createElement("li");
+            listItem.innerHTML = `<strong>${command.name}</strong>: ${command.description}`;
+            commandsList.appendChild(listItem);
+        });
+    }
+
+    // Call renderCommands function when the page loads
+    document.addEventListener("DOMContentLoaded", () => {
+        renderCommands();
+    });
+</script>
+
+</body>
+</html>
